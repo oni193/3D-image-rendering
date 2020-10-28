@@ -1,0 +1,93 @@
+*{margin:0px; padding:0px; text-decoration:none; font-family:sans-serif;
+  ;}
+  body{background-color: rgb(38,38,38); width: 1800px;}
+  ul{list-style: none;}
+  *:focus { outline:none; }
+  /* index 가운데 부분 */
+  #mark{position:absolute; top:35%; left:24%;}
+  .main img{width:12%;}
+  .center_txt{color:rgb(217,217,217); 
+      position: absolute; top:36%; left:38%; }
+  #txt1{font-size:4vw; letter-spacing: 7;}
+  #txt2{font-size:3vw; margin-top:-1%;}
+  #txt3{font-size:2vw; margin-top:-1.5%;}
+  
+  /* index 하단부 */
+  .copy{opacity:0.3; color:white; font-size:130%; 
+      padding-bottom:0px; position: absolute; bottom:0;}
+  .open-button{clear:left;
+    display: inline-block; width: 15%; height: 8%;
+      text-decoration: none; text-align: center;position:absolute; 
+      top:87%; left :42%; cursor:pointer; font-family:Arial;
+   text-shadow:0px -1px 0px #283966;
+      box-shadow:inset 1px 1px 3px 0px #000000; background:linear-gradient(to bottom, #5c5c5c 5%, #313131 100%);
+      background-color:#7892c2; border-radius:5px; border:1px solid #303030;
+      color:white; font-size:1.4vw; 
+  }
+  .open-button:hover{box-shadow:inset 1px 1px 3px 0px #000000; background:linear-gradient(to bottom, #2B82C6 5%, #2C58A9 100%);
+      background-color:#2B7DC3; border-radius:5px; border:1px solid #1b1f52;
+      color:white; }
+  .select{display:inline-block; width:15%; height: 8%;
+  text-align-last:center; position: absolute; top:87%; left:80%; font-family:Arial; text-shadow:0px -1px 0px #283966;
+  box-shadow: inset 1px 1px 3px 0px #000000; background:linear-gradient(to bottom, #5c5c5c 5%, #313131 100%);
+  background-color:#7892c2; border-radius: 5px; border:1px solid #303030; color:white; font-size:1.3vw;}
+  .select:hover{box-shadow:inset 1px 1px 3px 0px #000000; background:linear-gradient(to bottom, #2B82C6 5%, #2C58A9 100%);
+      background-color:#2B7DC3; border-radius:5px; border:1px solid #1b1f52;
+      color:white; }
+  
+  
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+      display: none;
+      position: absolute;
+      top:10vw;
+      left:40%;
+      border: 3px solid #f1f1f1;
+      z-index: 9;
+    }
+    
+    /* Add styles to the form container */
+    .form-container {
+      max-width:32vh;
+      padding: 1vw;
+      background-color: white;
+    }
+    
+    /* Full-width input fields */
+    .form-container input[type=text], .form-container input[type=password] {
+      width: 29vh;
+      padding: 0.8vw;
+      margin: 1vh 0 3vh 0;
+      border: none;
+      background: #f1f1f1;
+    }
+    
+    /* When the inputs get focus, do something */
+    .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+      background-color: rgb(179, 179, 179);
+      outline: none;
+    }
+    
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+      background-color: #575757;
+      color: white;
+      padding: 2vh 3vh;
+      border: none;
+      cursor: pointer;
+      width: 32vh;
+      margin-bottom:2vh;
+      opacity: 0.8;
+    }
+    
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+      background-color:#575757;
+    }
+    
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover, .open-button:hover {
+      background:linear-gradient(to bottom, #2B82C6 5%, #2C58A9 100%);
+      background-color:#2B7DC3; color:white;
+    } 

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta http-equiv="Content-Script-Type" content="text/javascript">
+   <meta http-equiv="Content-Style-Type" content="text/css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      
+<link rel="stylesheet" type="text/css" href="./resource/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="./resource/db.css">
+<script type="text/javascript" src="./resource/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="./resource/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+   var jsonData = {
+      "id":"12345678",
+      "name":"John Doe",
+      "birthdate":"1990-03-03",
+      "email":"accu3d@accu3d.com",
+      "contact":"+82010-1234-5678",
+      "memo":"This is Memo Box",
+      "data": [
+         {"hnumber":"H.001", "type":"New Scan", "received":"2019-02-03 14:12:37", "modified":"2019-04-01 12:12:40", "memo":"This is memo box1"},
+         {"hnumber":"H.002", "type":"Rhinoplasty", "received":"2019-02-03 14:12:37", "modified":"2019-04-01 12:12:40", "memo":"This is memo box2"},
+         {"hnumber":"H.003", "type":"New Scan", "received":"2019-02-03 14:12:37", "modified":"2019-04-01 12:12:40", "memo":"This is memo box3"}
+      ]
+   }
+   
+   var dataSet = new Array();
+   
+   var id, name, birthdate, email, contact, memo = "";
+   var flag = 0;
+   
+   function setUserData(userData) {
+      for (i in userData.data) {
+         dataSet[i] = [ userData.data[i].hnumber, userData.data[i].type, userData.data[i].received, userData.data[i].modified, userData.data[i].memo ];
+      }
+
+      id = userData.id;
+      name = userData.name;
+      birthdate = userData.birthdate;
+      email = userData.email;
+      contact = userData.contact;
+      memo = userData.memo;
+   }
+   
+   setUserData(jsonData);
+
+   function IFrameDisplayToggle() {
+      var x = document.getElementById("VtkViewer");
+      if (x.style.display === "none") {
+         x.style.display = "block";
+      } else {
+         x.style.display = "none";
+      }
+   }
+   
+   $(document).ready(function() {
+      $("#panel").hide();
+      var table = $('#dbtable').DataTable( {
+         "ordering"   : false,
+         "paging"   : false,
+         "info"      : false,
+         "filter"   : false,
+
+         data: dataSet,
+         columns: [
+            { title: "H. Number" },
+            { title: "Type" },
+            { title: "Received" },
+            { title: "Modified" },
+            { title: "Momo" }
+         ]
+      } );
+      
+      $('#dbtable').on( 'click', 'tr', function () {
+         $(this).toggleClass('selected');
+      } );
+      
+      $('#getval').click( function () {
+         alert( table.rows('.selected').data().toArray() );
+      } );
+      
+      $('#database').click( function () {
+         $("#panel").slideToggle("slow");
+         
+         if ( flag == 0 ) {
+            flag = 1
+         } else {
+            IFrameDisplayToggle();
+         }
+      } );
+      
+   } );
+   
+
+</script>
+</head>
+
+<body>
+	<input type="button" id="database" value="Database">
+	<iframe id='VtkViewer' src="obj-demo.html" frameborder=0 style="display:none; width:100vw; height:100vh;" ></iframe>
+
+	<div id="panel" style="z-index:2; width:100vw; height:100vh;">
+		<table id="toptable">
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Birthdate</td>
+				<td>Email Contact</td>
+				<td>Contact</td>
+			</tr>
+			<tr>
+				<td><script>document.write( id );</script></td>
+				<td><script>document.write( name );</script></td>
+				<td><script>document.write( birthdate );</script></td>
+				<td><script>document.write( email );</script></td>
+				<td><script>document.write( contact );</script></td>
+			</tr>
+			<tr>
+				<td>Memo</td>
+				<td colspan="4"><script>document.write( memo );</script></td>
+			</tr>
+		</table>
+		<table id="dbtable" class="display" width="100%" ></table>
+	</div>
+	
+</body>
+
+</html>

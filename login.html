@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta http-equiv="Content-Script-Type" content="text/javascript">
+   <meta http-equiv="Content-Style-Type" content="text/css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./resource/main.css">
+   
+  </head>
+<body>
+    <div class="main">
+      <img src="resource/logo.png" id="mark">
+      <div class="center_txt">
+         <p id="txt1">AAAABBB</p>
+         <p id="txt2">Future of Aaaaa Aaaaa & Aaaaaa</p>
+         <p id="txt3">web based aaaa aaaaaaaa aaaaaa </p>
+      </div>
+    </div>
+   
+    <section class="bot">
+        <div class="copy">
+            All Rights Reserved
+        </div>
+    </section>
+   
+    <button class="open-button" onclick="openForm()">Login</button>
+ 
+
+
+    <div class="form-popup" id="myForm">
+      <form action="/action_page.php" class="form-container">
+        <h1>Login</h1>
+    
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email">
+    
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw">
+    
+        
+		<input class="btn" type="button"   value="LOGIN" onclick="location.href='database_v2.html'">
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+    
+
+    <select name="lang" class="select">
+        <option value="">언어 선택</option>
+        <option value="kor">한국어</option>
+        <option value="eng" selected="selected">English</option>
+        <option value="ch">中文</option>
+        <option value="jp">日本</option>
+    </select>
+
+    <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+      
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+      </script>
+</body>
+</html>
