@@ -1,4 +1,4 @@
-# 3D-image-rendering![HitCount](http://hits.dwyl.com/oni193/3D-image-rendering.svg)
+# 3D-image-rendering
 
 
 ## 프로젝트 소개
